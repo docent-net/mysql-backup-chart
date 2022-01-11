@@ -50,7 +50,6 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.s3.secret.name }}
                   key: {{ .Values.s3.secret.keys.accessKeyId }}
-{{- end }}
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
@@ -59,6 +58,7 @@ spec:
 {{- if .Values.s3.endpointUrl }}
             - name: AWS_ENDPOINT_URL
               value: "{{ .Values.s3.endpointUrl }}"
+{{- end }}
 {{- end }}
 {{- if .Values.gcs.enabled }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
